@@ -1,0 +1,22 @@
+#overlay {
+  background-color: #5e9d07;
+  min-width: 100vw;
+  min-height: 100vh;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index: 10;
+  opacity: 1;
+  transition: all .3s ease-in-out;
+
+  #menu {
+    position:relative;
+    width: 100vw;
+    min-height: 100vh;
+
+    > div {
+      transform: translateY(-50%);
+      text-align: center;
+    }
+  }
+}

@@ -9,23 +9,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
   </head>
   <body>
-    <div id="score" class="flex space-around">
-      <div id="title" class="">
-          <h1>MEMORY ULTIMATE GAME</h1>
-      </div>
-      <div class="flex items-center">
-        <div id="time" class="">
-          00:10
-        </div>
-        <div id="try" class="">
-          2 essai(s)
+    <div class="">
+      <div id="overlay">
+        <div id="menu" class="flex items-center justify-center">
+          <div class="">
+            <h2>M.U.G</h2>
+            <h3>Score Board</h3>
+            <button type="button" name="button" class="flex items-center" onclick="initGame()">PLAY <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24"><path d="M3 22v-20l18 10-18 10z"/></svg></button>
+          </div>
         </div>
       </div>
-    </div>
-    <div id="cards" class="flex wrap space-around">
-      <!--<div id="card-01" class="card">
-
-      </div>-->
+      <div id="score" class="flex space-around">
+        <div id="title" class="">
+            <h1>MEMORY ULTIMATE GAME</h1>
+        </div>
+        <div class="flex items-center">
+          <div id="time" class="">
+            <div class="">
+              Temps restant: <span id="countdown">180</span>s
+            </div>
+            <progress id="progress-bar" value="2400" max="2400"></progress>
+          </div>
+          <div class="">
+            <div class="">
+              <span id="try-counter"></span> essai(s)
+            </div>
+            <div class="">
+              <span id="remaining-pairs"></span> paire(s) restante(s)
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="cards" class="flex wrap space-around">
+      </div>
     </div>
   </body>
   <script src="script.js"></script>
