@@ -1,4 +1,7 @@
-const PAIRS_NUMBER = 2; // Nombre de paires à trouver
+"use strict";
+
+const PAIRS_NUMBER = 18; // Nombre de paires à trouver
+const tableScoreTh = document.getElementById("score-table").innerHTML; // On récupère les titres du tableau des scores
 
 let cardsArray = []; // Tableau de cartes
 let savedCardId = null; // Carte à comparer
@@ -172,19 +175,26 @@ function updateTimer(currentTime) {
  * On déclare la fonction de fin de jeu.
  */
 function endingGame() {
-  // On met à jour le score board
-  getScores();
+  // On vide le tableau des scores
+  document.getElementById("score-table").innerHTML = tableScoreTh;
 
   // On affiche l'overlay
   document.getElementById("overlay").style.display = "initial";
 
   // On vérifie si c'est une victoire
   if (remainingPairs <= 0) {
-    let playerName = prompt("Entrez votre nom");
-    console.log(playerName);
-    console.log(tryCounter);
-    console.log(240 - Math.round(timerValue / 10));
+    const playerName = prompt("Entrez votre nom");
+    const time = 240 - Math.round(timerValue / 10);
+    const data = {
+      player_name: playerName,
+      time: time,
+      try: tryCounter,
+    };
+    postScore(data);
   }
+
+  // On récupère les nouveaux scores
+  getScores();
 }
 
 /**
@@ -241,4 +251,28 @@ function getScores() {
   fetch("/getScores")
     .then((response) => response.json())
     .then((data) => updateScoreBoard(data));
+}
+
+/**
+ * On déclare la fonction postScore pour enregistrer le nouveau score dans la base de données
+ * @link https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function
+ * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await
+ */
+async function postScore(data) {
+  //On construit notre requête asynchrone
+  const response = await fetch("/postScore", {
+    method: "POST",
+    mode: "same-origin",
+    cache: "no-cache",
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    referrerPolicy: "no-referrer",
+    body: JSON.stringify(data),
+  });
+
+  return response.json();
 }
