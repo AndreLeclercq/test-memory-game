@@ -2,11 +2,12 @@
   "name": "test-memory-game",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "sass --watch sass:./",
-    "prod": "sass sass:./ --style=compressed"
+    "watch": "sass --watch sass:public/",
+    "prod": "sass sass:public/ --style=compressed",
+    "start": "node ./server.js"
   },
   "repository": {
     "type": "git",
