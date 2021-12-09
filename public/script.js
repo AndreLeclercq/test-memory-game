@@ -32,7 +32,7 @@ function initGame() {
   }
 
   // On mélange le tableau de cartes
-  //shuffleCards(cardsArray);
+  shuffleCards(cardsArray);
 
   // On affiche le tableau des scores
   updateScore();
