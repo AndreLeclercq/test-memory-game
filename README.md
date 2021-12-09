@@ -6,7 +6,7 @@ L'objectif est de créer un jeu "memory" afin de montrer ses capacités techniqu
 
 **J'ai volontairement priorisé la présentation de méthodes et de concepts JS, HTML et SASS à l'optimisation et la lisibilité du code.**
 
-**Ce dernier est fonctionnel, et en dernier chapitre il faudrait procéder à un refacto complet pour le rendre plus homogène.**
+**Ce dernier est fonctionnel, et en chapitre final il faudrait procéder à un refacto complet pour le rendre plus homogène.**
 
 **Je pense qu'en tant que tuteur, il faut être capable de s'adapter à chaque étudiant, afin de lui permettre de trouver des méthodes qui pourront lui convenir. Il faut également être conscient des bonnes pratiques afin des le guider vers un résultat qui sera performant et lisible.**
 
